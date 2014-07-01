@@ -1,0 +1,338 @@
+#mondira-options-tabs .clearfix:before, 
+#mondira-options-tabs .clearfix:after {
+    content:"";
+    display:table;
+}
+
+#mondira-options-tabs .clearfix:after, .clearfix {
+    clear:both;
+}
+
+#mondira-options-tabs .wp-picker-container, #mondira-options-tabs .wp-picker-container:active, #mondira-options-tabs select.regular-select{
+    float: left;
+}
+
+#teamInfo-meta label{
+    width:80px;
+    display:block;
+    float:left;
+    line-height:24px;
+  }
+  
+#update-nag, .update-nag{
+    margin-left: 0;
+}  
+
+input.large{
+    width:75%;
+}
+input.medium{
+    width:45%;
+}
+
+select.multiselect-input{
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.ui-datepicker {
+    display: none;
+    position: absolute;
+    left: -99999px;
+}
+
+input[type="radio"].regular-option{
+    margin: 0 3px;
+} 
+ 
+/*
+* Option interface or mondira settings interface css start here
+*/  
+
+#tabs ul{
+    overflow: hidden;
+}  
+
+#tabs ul li{
+    float: left;
+    padding: 5px 10px;
+    background-color: #e2e2e2;
+    color: #555;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+#tabs ul li a{
+    color: #555;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+  
+.mondira-media-upload-button, .mondira-media-preview{
+    margin-top: 10px;
+}  
+
+.mondira-media-preview{
+    /*width:140px;
+    height: 120px;
+    overflow: hidden;
+    * It is doing via jquery
+    */
+    
+    float: left;
+}
+
+/*
+ * docs tabs
+ */    
+ #mondira-docs-tabs, #mondira-options-tabs {
+    border: 5px solid #e2e2e2;
+    background-color: #fff;       
+    /*clear:both; */
+    margin:10px 0 20px;   
+    -moz-border-radius:4px;
+    -khtml-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    padding: 0;
+    width: 98%;       
+    max-width: 980px;
+    float: left;
+    overflow: hidden;
+    
+    /*font: 14px/1.6 Courier, 'Courier New', monospace;      */
+}
+.mondira-docs-page h2, .mondira-docs-tabs h2{
+    /*font: 22px/1.6 Courier, 'Courier New', monospace;  */
+}
+.ibutton-container {
+    margin-bottom: 10px !important;
+}
+.mondira-docs-page label, .mondira-docs-tabs label{
+    font-weight: bold;    
+}
+
+.mondira-docs-page .form-table th, .mondira-docs-tabs .form-table th{
+    padding: 10px 0 !important;
+}
+
+.mondira-docs-tabs {
+    display: none;
+}
+.mondira-docs-page .ui-tabs { 
+    zoom: 1; 
+    position:relative;
+}
+.ui-tabs .mondira-docs-tabs {
+    display: block;
+    padding: 0;
+    margin: 0;
+    background: #e2e2e2; 
+    border-right: 0px solid #aaa;   
+}
+.mondira-docs-page .mondira-docs-tabs li a:first-child {  
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav { 
+    list-style: none; 
+    position: relative; 
+    float: left; 
+    width: 100%;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav li { 
+    position: relative; 
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border-bottom: 0px solid #e2e2e2; 
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav li a { 
+    float: left; 
+    text-decoration: none;
+    display: block;
+    width: auto;
+    padding: 8px 10px;
+    
+    color: #21759B;                   
+    text-shadow: 0 1px 0 #fff;        
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, 
+.mondira-docs-page .ui-tabs .ui-tabs-nav li.ui-tabs-active a,
+.mondira-docs-page .ui-tabs .ui-tabs-nav li.ui-tabs-active a:hover,
+.mondira-docs-page .ui-tabs .ui-tabs-nav li.ui-tabs-selected a:hover,
+.mondira-docs-page .ui-tabs .ui-tabs-nav li a:hover { 
+    background: #fff;
+    color: #d54e45;
+    width: auto;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+.mondira-docs-page.ui-tabs-nav li.ui-state-disabled a, 
+.mondira-docs-page.ui-tabs-nav li.ui-state-processing a { 
+    cursor: text;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav li a, 
+.mondira-docs-page .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { 
+    cursor: pointer; 
+    font-size: 18px;
+    padding: 10px 20px;
+}
+.mondira-docs-page .ui-tabs .ui-tabs-nav li.ui-state-hover a {
+    background-color: #FFF;
+    color: #555;
+}
+.mondira-docs-page .ui-tabs .ui-tabs-panel { 
+    display: block;
+    min-height: 400px;
+}
+.mondira-docs-page .ui-tabs .ui-tabs-hide { 
+    display: none !important; 
+}
+.mondira-docs-page .mondira-docs-tabs li.ui-tabs-selected span {
+    position: absolute;
+    left: -1px;
+    top: 13px;
+    height: 9px;
+    width: 8px;       
+}
+.mondira-docs-page .block, .mondira-docs-tabs .block {
+    display: block;  
+    padding: 20px;      
+    float: left;        
+}
+
+.mondira-docs-tabs .block{
+    padding: 0;
+}
+
+.theme-options-page {
+    margin: 0;
+}
+     
+#mondira-docs-tabs .block{
+    max-width: 940px;     
+}
+/*
+ * docs typography
+ */
+#mondira-docs-tabs h2, #mondira-options-tabs h2 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e2e2e2;
+}
+#mondira-docs-tabs h3, #mondira-options-tabs h3 {
+    border-bottom: 1px solid #e2e2e2;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+#mondira-docs-tabs h4, #mondira-options-tabs h4 {
+    font-size: 13px;
+}
+#mondira-docs-tabs, #mondira-options-tabs {
+    font-size: 13px !important;
+    color: #555;
+}
+.mondira-docs-page p {
+    font-size: 13px;
+    color: #555;
+    padding-bottom: 20px;
+    margin: 0;
+}
+.mondira-docs-page .block img, .mondira-docs-page .block img {
+    max-width: 100%;
+}
+.mondira-docs-page .block ul, .mondira-docs-page .block ol {
+    font-size: 13px !important;
+    padding-bottom: 20px;
+}
+.mondira-docs-page .block ul li{
+    list-style: disc;
+}
+.mondira-docs-page .block li {
+    padding-bottom: 0px;
+    margin-left: 16px;
+}
+.mondira-docs-page code {
+    background-color: #e2e2e2;
+    color: #000;
+}
+.mondira-docs-page pre {
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    line-height: 18px;
+    overflow: auto;
+    overflow-Y: hidden;
+    padding-top: 18px;
+    background: #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 20px;
+    color: #000;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+}
+.mondira-docs-page pre code {
+    padding: 0 18px 18px 18px;
+    display: block;
+    background: url(../images/pre_bg.gif) repeat left top;
+}      
+
+
+.mondira-media-preview {
+    overflow: hidden;
+    position: relative;
+}
+.mondira-media-preview img {
+    margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;    
+}
+
+.regular-text{
+    width:277px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+td.empty {
+    padding: 0;
+}
+textarea.regular-text{
+    width: 100%;
+    min-height: 150px;
+    margin-bottom: 5px;
+}
+   .medium{
+    width:277px;
+    float: left;
+}
+.large{
+    width:400px;
+    float: left;
+}
+
+input.regular-text.range{
+    width: 30px;
+    margin-bottom: 0;
+}
+
+#mondira-options-tabs span.description{
+    font-size: 14px;
+    line-height: 33px;   
+}
+.wp-picker-container, .regular-select{
+    float: left;
+}
+
+
+#mondira-options-tabs .form-table{
+    margin-bottom: 10px !important;
+}
+
+
+ 
+span.avoid_br {
+    line-height: 33px !important;
+} 
