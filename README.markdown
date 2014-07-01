@@ -1,7 +1,10 @@
-#Mondira Plugins Framework V 1.0.0 beta!
-========================================
+#Mondira Plugins Framework 
+==========================
 
-A Really simplge WordPress plugins development framework by [Jewel Ahmed](http://codeatomic.com/)!
+V 1.0.0 beta!
+-------------
+
+A really simple WordPress plugins development framework by [Jewel Ahmed](http://codeatomic.com/)!
 
 More details coming soon.
 
