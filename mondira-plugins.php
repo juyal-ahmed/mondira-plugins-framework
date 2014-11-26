@@ -5,9 +5,9 @@ Plugin URI: http://mondira.com/
 Description: A WordPress Plugins development framework.
 Author: Jewel Ahmed
 Author URI: http://www.codeatomic.com
-Version: 1.0.0 beta
-Compatible WordPress Version: 3.9.x
-Last Updated: 01 Jul, 2014
+Version: 1.3.0
+Compatible WordPress Version: 4.0
+Last Updated: 04 Jun, 2014
 Remark: Optimized folder structures and constants
 */
 
@@ -16,6 +16,7 @@ if(!class_exists('Mondira_Plugins')){
         var $enqueue_reources = array();
         var $theme_supports = array('post', 'page');
         var $plugins_name = '';
+        var $mondira_theme_setup = false;
         var $plugins_slug = '';
         var $plugins_url = '';
         var $author_url = '';
@@ -123,6 +124,9 @@ if(!class_exists('Mondira_Plugins')){
         }
         
         function admin() {
+			if ( $this->mondira_theme_setup ) {
+				return false;
+			}
             if (is_admin()) {
                 require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_DIR'] . '/mondira-plugins-admin.php');
                 $plugins_admin = new Mondira_Plugins_Admin();

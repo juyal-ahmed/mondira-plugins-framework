@@ -123,8 +123,10 @@ if(!class_exists('Mondira_Plugins_Admin')){
         
         function admin_functions(){
             require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_LIB_FUNCTIONS_DIR'] . '/mondira-admin-general.php');
-            require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_LIB_FUNCTIONS_DIR'] . '/mondira-admin-head.php');
-            require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_LIB_FUNCTIONS_DIR'] . '/mondira-media-upload.php');
+			if ( !$this->mondira_theme_setup ) {
+				require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_LIB_FUNCTIONS_DIR'] . '/mondira-admin-head.php');
+				require_once ($this->config[$this->plugins_slug]['MONDIRA_PLUGINS_FRAMEWORK_ADMIN_LIB_FUNCTIONS_DIR'] . '/mondira-media-upload.php');
+			}
         }
     }
 }

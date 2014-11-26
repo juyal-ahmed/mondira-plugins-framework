@@ -24,7 +24,7 @@
 }  
 
 input.large{
-    width:75%;
+    width:100%;
 }
 input.medium{
     width:45%;
@@ -35,11 +35,6 @@ select.multiselect-input{
     min-height: 200px;
 }
 
-.ui-datepicker {
-    display: none;
-    position: absolute;
-    left: -99999px;
-}
 
 input[type="radio"].regular-option{
     margin: 0 3px;
@@ -111,9 +106,9 @@ input[type="radio"].regular-option{
     font-weight: bold;    
 }
 
-.mondira-docs-page .form-table th, .mondira-docs-tabs .form-table th{
+/*.mondira-docs-page .form-table th, .mondira-docs-tabs .form-table th{
     padding: 10px 0 !important;
-}
+}*/
 
 .mondira-docs-tabs {
     display: none;
@@ -138,6 +133,7 @@ input[type="radio"].regular-option{
     width: 100%;
     word-wrap: break-word;
     overflow: hidden;
+    margin-bottom: 10px;
 }
 .mondira-docs-page .ui-tabs .ui-tabs-nav li { 
     position: relative; 
@@ -201,8 +197,8 @@ input[type="radio"].regular-option{
 }
 .mondira-docs-page .block, .mondira-docs-tabs .block {
     display: block;  
-    padding: 20px;      
-    float: left;        
+    padding: 20px; 
+    padding-top: 40px; 
 }
 
 .mondira-docs-tabs .block{
@@ -320,7 +316,7 @@ input.regular-text.range{
 
 #mondira-options-tabs span.description{
     font-size: 14px;
-    line-height: 33px;   
+    line-height: 20px;   
 }
 .wp-picker-container, .regular-select{
     float: left;
@@ -334,5 +330,6 @@ input.regular-text.range{
 
  
 span.avoid_br {
-    line-height: 33px !important;
+    line-height: 20px !important;
+    padding-top: 8px;
 } 

@@ -127,33 +127,35 @@ if(!class_exists('Metabox')){
     }
     
     
-    function text($value=array()) {
-            echo $this->html->formTableInput(array('title'=>$value['title'], 'name'=>$value['id'], 'value'=>$value['default'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'type'=>'text', 'id'=>$value['id'], 'class'=>!empty($value['class'])?$value['class']:'', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
-        }
-    
-    
-    function dated($value=array()) {
-        wp_enqueue_style('jquery-ui-style', 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/smoothness/jquery-ui.css');
-        echo $this->html->formTableInput(array('title'=>$value['title'], 'name'=>$value['id'], 'value'=>$value['default'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'type'=>'text', 'id'=>$value['id'], 'class'=>'datepicker', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
+    function text($value = array()) {
+        echo $this->html->formTableInput(array('title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'value'=>$value['default'], 'type'=>'text', 'id'=>$value['id'], 'class'=>!empty($value['class'])?$value['class']:'', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
     }
     
     
-    function textarea($value=array()) {
-        echo $this->html->formTableTextarea(array('title'=>$value['title'], 'name'=>$value['id'], 'value'=>$value['default'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'type'=>'textarea', 'id'=>$value['id'], 'class'=>!empty($value['regular-text'])?$value['class']:'regular-text', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
+    function dated($value = array()) {
+        echo $this->html->formTableInput(array('title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'value'=>$value['default'], 'type'=>'text', 'id'=>$value['id'], 'class'=>'datepicker', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
     }
     
-    function editor($value=array()) {
-        echo $this->html->formTableTextarea(array('title'=>$value['title'], 'name'=>$value['id'], 'value'=>$value['default'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'type'=>'editor', 'id'=>$value['id'], 'class'=>!empty($value['regular-text'])?$value['class']:'regular-text', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
+    
+    function textarea($value = array()) {
+        
+        echo $this->html->formTableTextarea(array('title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'value'=>$value['default'], 'type'=>'textarea', 'id'=>$value['id'], 'class'=>!empty($value['class'])?$value['class']:'', 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no'), $description = $value['desc']);
+    
     }
     
-    function checkbox($value=array()){
-        echo $this->html->formTableCheckbox(array('title'=>$value['title'], 'name'=>$value['id'], 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'checked'=>$value['default']), $description = $value['desc']);
+    
+    function checkbox($value = array()){
+        
+        echo $this->html->formTableCheckbox(array('title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'id'=>$value['id'], 'checked'=>$value['default']), $description = $value['desc']);
+        
     }
     
-    function color($value=array()){
-        echo $this->html->formTableColor(array('name'=>$value['id'], 'value'=>$value['default'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'data-default-color'=>$value['data-default-color']));
-    }
-    
+    function color($value = array()){
+        
+        echo $this->html->formTableColor(array('name'=>$value['id'], 'value'=>$value['default']));
+        
+    }   
+     
     function option($value = array()){
         
         if(!empty($value['source'])){
@@ -199,9 +201,11 @@ if(!class_exists('Metabox')){
         }       
     }
     
-    function select($value=array()){
-            
+    function select($value = array()){
+        
         if(!empty($value['source'])){
+            
+            
             
             if(!empty($value['source']) && $value['source']=='page' && !empty($value['nasted']) && $value['nasted']=='yes'){
                 $selectString = '<option value="">Select Page</option>';
@@ -216,7 +220,7 @@ if(!class_exists('Metabox')){
                 $pages = get_pages($args);
                 $selectString.= walk_page_dropdown_tree($pages,$args['depth'],$args);
                 
-                echo $this->html->formTableSelect(array('options'=>$selectString, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'name'=>$value['id'], 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default'], 'nasted'=>'yes'), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('options'=>$selectString, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'id'=>$value['id'], 'selected'=>$value['default'], 'nasted'=>'yes'), $description=!empty($value['desc'])?$value['desc']:'');    
             } else if($value['source']=='users'){
                 
                 $args = array(
@@ -237,19 +241,19 @@ if(!class_exists('Metabox')){
                     'class'                   => $value['class'], // string 
                 );
                 $select_box = wp_dropdown_users( $args );
-                echo $this->html->formTableSelect(array('field'=>$select_box, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'name'=>$value['id'], 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default']), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('field'=>$select_box, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'id'=>$value['id'], 'selected'=>$value['default']), $description=!empty($value['desc'])?$value['desc']:'');    
             } else {
-                echo $this->html->formTableSelect(array('options'=>$this->get_wpdb_options($value['source'], $value['post_type']), 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'empty'=>'Please select...', 'name'=>$value['id'], 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default']), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('options'=>$this->get_wpdb_options($value['source'], $value['post_type']), 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'empty'=>'Please select...', 'name'=>$value['id'], 'id'=>$value['id'], 'selected'=>$value['default']), $description=!empty($value['desc'])?$value['desc']:'');    
             }
             
         } else {
-            echo $this->html->formTableSelect(array('options'=>$value['options'], 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'name'=>$value['id'], 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default']), $description=$value['desc']);    
+            echo $this->html->formTableSelect(array('options'=>$value['options'], 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'id'=>$value['id'], 'selected'=>$value['default']), $description=!empty($value['desc'])?$value['desc']:'');    
         }
         
         
     }
     
-    function select_multi($value=array()){
+    function select_multi($value = array()){
         if(!empty($value['source'])){
             if(!empty($value['source']) && $value['source']=='page' && !empty($value['nasted']) && $value['nasted']=='yes'){
                 $selectString = '<option value="">Select Page</option>';
@@ -264,7 +268,7 @@ if(!class_exists('Metabox')){
                 $pages = get_pages($args);
                 $selectString.= walk_page_dropdown_tree($pages,$args['depth'],$args);
                 
-                echo $this->html->formTableSelect(array('options'=>$selectString, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default'], 'nasted'=>'yes'), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('options'=>$selectString, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'selected'=>$value['default'], 'nasted'=>'yes'));    
             } else if($value['source']=='users'){
                 
                 $args = array(
@@ -285,35 +289,35 @@ if(!class_exists('Metabox')){
                     'class'                   => $value['class'], // string 
                 );
                 $select_box = wp_dropdown_users( $args );
-                echo $this->html->formTableSelect(array('field'=>$select_box, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'selected'=>$value['default']), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('field'=>$select_box, 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'selected'=>$value['default']));    
             } else {
-                echo $this->html->formTableSelect(array('options'=>$this->get_wpdb_options($value['source'], $value['post_type']), 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'multiple'=>'multiple', 'empty'=>'Please select...', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default']), $description=$value['desc']);    
+                echo $this->html->formTableSelect(array('options'=>$this->get_wpdb_options($value['source'], $value['post_type']), 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'multiple'=>'multiple', 'empty'=>'Please select...', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'selected'=>$value['default']));    
             }
             
         } else {
-            echo $this->html->formTableSelect(array('options'=>$value['options'], 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>$value['title'], 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'selected'=>$value['default']), $description=$value['desc']);    
+            echo $this->html->formTableSelect(array('options'=>$value['options'], 'class'=>!empty($value['class'])?$value['class']:'', 'title'=>!empty($value['title'])?$value['title']:'', 'multiple'=>'multiple', 'name'=>$value['id'].'[]', 'id'=>$value['id'], 'selected'=>$value['default']), $description=!empty($value['desc'])?$value['desc']:'');    
         }
         
         
     }
     
-    function upload($value=array()){
-        echo $this->html->formTableInput(array('upload'=>$value['upload'], 'title'=>$value['title'], 'name'=>$value['id'], 'avoid_br'=>!empty($value['avoid_br'])?$value['avoid_br']:'no', 'type'=>'text', 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'class'=>'regular-text', 'value'=>!empty($value['default'])?$value['default']:''), $description=!empty($value['desc'])?$value['desc']:'');
-    }
+    function upload($value = array()){
     
-    function upload_zip($value=array()){
-        echo $this->html->formTableInput(array('upload_zip'=>$value['upload_zip'], 'title'=>$value['title'], 'name'=>$value['id'], 'avoid_br'=>$value['avoid_br'], 'type'=>'text', 'id'=>$value['id'], 'data-fold'=>!empty($value['data-fold'])?$value['data-fold']:'', 'class'=>'regular-text', 'value'=>!empty($value['default'])?$value['default']:''), $description=!empty($value['desc'])?$value['desc']:'');
+        echo $this->html->formTableInput(array('upload'=>$value['upload'], 'title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'type'=>'text', 'id'=>$value['id'], 'class'=>'regular-text', 'value'=>$value['default']));
+        
+        
     }
+    function upload_zip($value = array()){
     
-    function html($value=array()){
-        echo $this->html->formTableHtml(array('html'=>$value['html']));
+        echo $this->html->formTableInput(array('upload_zip'=>$value['upload'], 'title'=>!empty($value['title'])?$value['title']:'', 'name'=>$value['id'], 'type'=>'text', 'id'=>$value['id'], 'class'=>'regular-text', 'value'=>$value['default']));
+        
+        
     }
     
     function get_wpdb_options($type, $post_type = null) {
-        
         $options = array();
         switch($type){
-           case 'page':
+            case 'page':
                 $entries = get_pages('title_li=&orderby=name&suppress_filters=0');
                 foreach($entries as $key => $entry) {
                     $options[$entry->ID] = $entry->post_title;
@@ -335,12 +339,6 @@ if(!class_exists('Metabox')){
                 $entries = get_posts('post_type='.$post_type.'&orderby=title&numberposts=-1&order=ASC&suppress_filters=0');
                 foreach($entries as $key => $entry) {
                     $options[$entry->ID] = $entry->post_title;
-                }
-                break;
-            case 'custom-tax':
-                $entries = get_categories('taxonomy='.$post_type.'&title_li=&orderby=name&hide_empty=1&suppress_filters=0');
-                foreach($entries as $key => $entry) {
-                    $options[$entry->term_id] = $entry->name;
                 }
                 break;
         }

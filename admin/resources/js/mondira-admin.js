@@ -14,7 +14,7 @@ var mondiraAdmin = {
           'text-align' : 'center'
         }
         jQuery("#"+target+"_preview").css(cssObj);
-        jQuery("#"+target+"_preview").html('<img style="margin-top:44px;" src="'+ MONDIRA_PLUGINS_FRAMEWORK_ADMIN_RESOURCES_URI + '/images/ajax-loader.gif"/>');
+        jQuery("#"+target+"_preview").html('<img style="margin-top:44px;" src="'+ mondira_plugins.plugins_admin_resources_uri + '/images/ajax-loader.gif"/>');
         
         jQuery.post(ajaxurl, {
             action:'mondira-image-upload-get-image',
@@ -99,26 +99,3 @@ function enablingFancyBox(){
     //jQuery("a.fancybox").fancybox();
 }
 
-//Enabling input fold on/off
-jQuery(document).ready(function($){
-    $('input[data-fold^="_"]').each(function(){
-        var $input_obj = $(this); // assigning the object
-        
-        var fold_id = $input_obj.data("fold");
-        
-        if($('#'+fold_id).is(':checked')){
-            
-        } else {
-            $input_obj.parents("tr").hide("slow");    
-        }
-        
-        $('#'+fold_id).change(function(){
-            if($('#'+fold_id).is(':checked')){
-                $input_obj.parents("tr").show("slow");
-            } else {
-                $input_obj.parents("tr").hide("slow");    
-            }    
-        });
-        
-    });                                                              
-});
